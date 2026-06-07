@@ -5,6 +5,7 @@ import { ComponentPanel } from "./ui/ComponentPanel";
 import { DetailPanel } from "./ui/DetailPanel";
 import { RotationControl } from "./ui/RotationControl";
 import { ResetViewButton } from "./ui/ResetViewButton";
+import { SiteIntro } from "./ui/SiteIntro";
 import { RackScene } from "./three/RackScene";
 import { parseMetalWheel } from "./data/metalWheel";
 import { parseCatalogue } from "./data/components";
@@ -133,6 +134,7 @@ function ExplorerApp() {
             <ResetViewButton />
           </div>
         )}
+        {rackReady && !detailOpen && !selectedComponentId && <SiteIntro />}
         {selected && !detailOpen && (
           <ComponentPanel
             component={selected}

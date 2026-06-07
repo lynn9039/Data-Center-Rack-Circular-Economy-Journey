@@ -11,8 +11,9 @@
     "build": "tsc && vite build",
     "build:ci": "tsc && vite build",
     "preview": "vite preview",
-    "deploy": "wrangler pages deploy dist --project-name=data-center-rack-ce --branch=main --commit-dirty=true",
-    "deploy:preview": "wrangler pages deploy dist --project-name=data-center-rack-ce --commit-dirty=true"
+    "pages:ensure": "wrangler pages project create data-center-rack-circular-economy-journey --production-branch=main || true",
+    "deploy": "npm run pages:ensure && wrangler pages deploy dist --project-name=data-center-rack-circular-economy-journey --branch=main --commit-dirty=true",
+    "deploy:preview": "npm run pages:ensure && wrangler pages deploy dist --project-name=data-center-rack-circular-economy-journey --commit-dirty=true"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.0",

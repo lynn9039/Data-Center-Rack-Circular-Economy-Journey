@@ -1,0 +1,50 @@
+{
+  "carriers": [
+    {
+      "symbol": "Fe",
+      "name": "Iron",
+      "attributes": {
+        "recoverableYield": 0.9,
+        "technicalDifficulty": 0.4,
+        "capitalInvestment": 0.5,
+        "saleValue": 0.3
+      },
+      "companions": [
+        { "symbol": "C", "classification": "A" },
+        { "symbol": "Cu", "classification": "B" },
+        { "symbol": "Pb", "classification": "C" }
+      ]
+    },
+    {
+      "symbol": "Cu",
+      "name": "Copper",
+      "attributes": {
+        "recoverableYield": 0.85,
+        "technicalDifficulty": 0.5,
+        "capitalInvestment": 0.6,
+        "saleValue": 0.75
+      },
+      "companions": [
+        { "symbol": "Au", "classification": "B" },
+        { "symbol": "Ag", "classification": "B" },
+        { "symbol": "Sn", "classification": "A" },
+        { "symbol": "Pb", "classification": "C" }
+      ]
+    },
+    {
+      "symbol": "Al",
+      "name": "Aluminum",
+      "attributes": {
+        "recoverableYield": 0.88,
+        "technicalDifficulty": 0.35,
+        "capitalInvestment": 0.45,
+        "saleValue": 0.55
+      },
+      "companions": [
+        { "symbol": "Mg", "classification": "A" },
+        { "symbol": "Cu", "classification": "B" },
+        { "symbol": "Fe", "classification": "B" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "components": [
+    {
+      "id": "switch-1",
+      "displayName": "Network Switch",
+      "containsChips": true,
+      "functions": ["Routes traffic between rack devices at line rate."],
+      "materials": [
+        { "element": "Cu", "massPercent": 0.22 },
+        { "element": "Al", "massPercent": 0.35 },
+        { "element": "Fe", "massPercent": 0.15 },
+        { "element": "Au", "massPercent": 0.002, "isRare": true }
+      ],
+      "subParts": [
+        { "id": "switch-1.enclosure", "name": "Steel Enclosure", "primaryMaterial": "Galvanized steel", "function": "Protects PCB and provides mounting.", "expectsChips": false },
+        { "id": "switch-1.pcb", "name": "Switch PCB", "primaryMaterial": "FR-4 laminate", "function": "Hosts ASIC and port PHY chips.", "expectsChips": true, "chips": [{ "die": "ASIC die", "package": "BGA", "pins": "1200 BGA pins" }] },
+        { "id": "switch-1.psu", "name": "Power Module", "primaryMaterial": "Cu windings", "function": "Converts rack DC to board rails.", "expectsChips": false },
+        { "id": "switch-1.heat", "name": "Heat Sink", "primaryMaterial": "Al extrusion", "function": "Dissipates ASIC heat.", "expectsChips": false }
+      ],
+      "chipInfo": [{ "die": "ASIC die", "package": "BGA", "pins": "1200 BGA pins" }]
+    },
+    {
+      "id": "router-1",
+      "displayName": "Core Router",
+      "containsChips": true,
+      "functions": ["Aggregates WAN and intra-rack backbone traffic."],
+      "materials": [
+        { "element": "Cu", "massPercent": 0.2 },
+        { "element": "Al", "massPercent": 0.28 },
+        { "element": "Fe", "massPercent": 0.18 }
+      ],
+      "subParts": [
+        { "id": "router-1.chassis", "name": "Chassis", "primaryMaterial": "Al alloy", "function": "Structural frame.", "expectsChips": false },
+        { "id": "router-1.linecard", "name": "Line Card", "primaryMaterial": "FR-4", "function": "Packet forwarding.", "expectsChips": true, "chips": [{ "die": "NP die", "package": "FCBGA", "pins": "2400 pins" }] },
+        { "id": "router-1.fan", "name": "Cooling Fan", "primaryMaterial": "Plastic + Cu motor", "function": "Forced convection.", "expectsChips": false }
+      ],
+      "chipInfo": [{ "die": "NP die", "package": "FCBGA", "pins": "2400 pins" }]
+    },
+    {
+      "id": "server-1",
+      "displayName": "Compute Server",
+      "containsChips": true,
+      "functions": ["Hosts virtualized workloads and storage services."],
+      "materials": [
+        { "element": "Fe", "massPercent": 0.4 },
+        { "element": "Cu", "massPercent": 0.12 },
+        { "element": "Al", "massPercent": 0.25 },
+        { "element": "Au", "massPercent": 0.0008, "isRare": true }
+      ],
+      "subParts": [
+        { "id": "server-1.chassis", "name": "Server Chassis", "primaryMaterial": "Steel", "function": "1U form factor housing.", "expectsChips": false },
+        { "id": "server-1.mobo", "name": "Motherboard", "primaryMaterial": "FR-4", "function": "CPU and DIMM interconnect.", "expectsChips": true, "chips": [{ "die": "CPU die", "package": "LGA package", "pins": "1700 LGA pins" }] },
+        { "id": "server-1.dimm", "name": "Memory Modules", "primaryMaterial": "Au-plated contacts", "function": "DRAM storage.", "expectsChips": true, "chips": [{ "die": "DRAM die", "package": "BGA on DIMM", "pins": "288 contacts" }] },
+        { "id": "server-1.psu", "name": "PSU", "primaryMaterial": "Cu + ferrite", "function": "AC-DC conversion.", "expectsChips": false }
+      ],
+      "chipInfo": [{ "die": "CPU die", "package": "LGA package", "pins": "1700 LGA pins" }]
+    },
+    {
+      "id": "gpu-server-1",
+      "displayName": "GPU Server",
+      "containsChips": true,
+      "functions": ["Hosts AI/ML compute with high-density accelerators."],
+      "materials": [
+        { "element": "Cu", "massPercent": 0.18 },
+        { "element": "Al", "massPercent": 0.3 },
+        { "element": "Au", "massPercent": 0.001, "isRare": true }
+      ],
+      "subParts": [
+        { "id": "gpu-server-1.enclosure", "name": "Enclosure", "primaryMaterial": "Al sheet", "function": "Airflow management.", "expectsChips": false },
+        { "id": "gpu-server-1.pcb", "name": "Mainboard PCB", "primaryMaterial": "FR-4 laminate", "function": "Carries traces and GPU sockets.", "expectsChips": true, "chips": [{ "die": "GPU die", "package": "BGA package", "pins": "2048 BGA pins" }] },
+        { "id": "gpu-server-1.gpu", "name": "GPU Module", "primaryMaterial": "Cu heatsink base", "function": "Tensor/matrix acceleration.", "expectsChips": true, "chips": [{ "die": "GPU die", "package": "BGA package", "pins": "2048 BGA pins" }] },
+        { "id": "gpu-server-1.psu", "name": "High-Wattage PSU", "primaryMaterial": "Cu busbars", "function": "Supplies 300W+ per GPU.", "expectsChips": false }
+      ],
+      "chipInfo": [{ "die": "GPU die", "package": "BGA package", "pins": "2048 BGA pins" }]
+    },
+    {
+      "id": "storage-1",
+      "displayName": "Storage Array",
+      "containsChips": true,
+      "functions": ["Provides block/object storage to the rack."],
+      "materials": [
+        { "element": "Al", "massPercent": 0.32 },
+        { "element": "Fe", "massPercent": 0.35 },
+        { "element": "Cu", "massPercent": 0.1 }
+      ],
+      "subParts": [
+        { "id": "storage-1.bay", "name": "Drive Bays", "primaryMaterial": "Steel", "function": "Hot-swap HDD/SSD mounting.", "expectsChips": false },
+        { "id": "storage-1.controller", "name": "RAID Controller", "primaryMaterial": "FR-4", "function": "Manages drive arrays.", "expectsChips": true, "chips": [{ "die": "SoC die", "package": "BGA", "pins": "800 pins" }] },
+        { "id": "storage-1.backplane", "name": "SAS Backplane", "primaryMaterial": "Cu traces", "function": "Interconnects drives.", "expectsChips": false }
+      ],
+      "chipInfo": [{ "die": "SoC die", "package": "BGA", "pins": "800 pins" }]
+    },
+    {
+      "id": "power-1",
+      "displayName": "Rack PDU",
+      "containsChips": false,
+      "functions": ["Distributes conditioned power to all rack units."],
+      "materials": [
+        { "element": "Cu", "massPercent": 0.45 },
+        { "element": "Fe", "massPercent": 0.3 },
+        { "element": "Al", "massPercent": 0.1 }
+      ],
+      "subParts": [
+        { "id": "power-1.housing", "name": "PDU Housing", "primaryMaterial": "Steel", "function": "Encloses busbars.", "expectsChips": false },
+        { "id": "power-1.busbars", "name": "Copper Busbars", "primaryMaterial": "Cu", "function": "High-current distribution.", "expectsChips": false },
+        { "id": "power-1.meter", "name": "Metering Module", "primaryMaterial": "Plastic + Cu", "function": "Per-outlet metering.", "expectsChips": false }
+      ],
+      "chipInfo": []
+    },
+    {
+      "id": "cabling-1",
+      "displayName": "Fiber/Copper Cabling",
+      "containsChips": false,
+      "functions": ["Interconnects all rack devices at required bandwidth."],
+      "materials": [
+        { "element": "Cu", "massPercent": 0.6 },
+        { "element": "Al", "massPercent": 0.05 },
+        { "element": "Fe", "massPercent": 0.02 }
+      ],
+      "subParts": [
+        { "id": "cabling-1.fiber", "name": "Fiber Trunks", "primaryMaterial": "Glass + polymer jacket", "function": "Long-reach optical links.", "expectsChips": false },
+        { "id": "cabling-1.copper", "name": "Copper Patch", "primaryMaterial": "Cu conductors", "function": "Short-reach copper links.", "expectsChips": false },
+        { "id": "cabling-1.manager", "name": "Cable Manager", "primaryMaterial": "Steel + plastic", "function": "Organizes cable paths.", "expectsChips": false }
+      ],
+      "chipInfo": []
+    },
+    {
+      "id": "cooling-1",
+      "displayName": "Cooling System",
+      "containsChips": false,
+      "functions": ["Removes waste heat via CRAC and in-rack airflow."],
+      "materials": [
+        { "element": "Al", "massPercent": 0.4 },
+        { "element": "Cu", "massPercent": 0.15 },
+        { "element": "Fe", "massPercent": 0.25 }
+      ],
+      "subParts": [
+        { "id": "cooling-1.crac", "name": "CRAC Unit", "primaryMaterial": "Cu coils", "function": "Chilled air supply.", "expectsChips": false },
+        { "id": "cooling-1.fans", "name": "Rack Fans", "primaryMaterial": "Al + plastic", "function": "Pulls air through servers.", "expectsChips": false },
+        { "id": "cooling-1.duct", "name": "Air Ducting", "primaryMaterial": "Galvanized steel", "function": "Directs airflow.", "expectsChips": false }
+      ],
+      "chipInfo": []
+    }
+  ]
+}
